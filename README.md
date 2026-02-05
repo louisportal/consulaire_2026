@@ -1,2 +1,4 @@
-# consulaire_2026
-The consular campaign 2026 
+# My page
+Super simple: 
+Intro with different links to the different activities.
+That's it.
