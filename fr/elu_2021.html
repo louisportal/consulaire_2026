@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Louis Portal - Élu 2021 · Conseiller des Français de l'Étranger</title>
+    <title>Louis Portal - Cdfe</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="../auth.js"></script>
 </head>
@@ -16,16 +16,50 @@
                 <p>Conseiller des Français de l'Étranger – 2021/2026</p>
                 <p>🇨🇭 Suisse alémanique · 🇱🇮 Liechtenstein</p>
             </div>
-            <a href="consulaire.html" class="campaign-link" style="color: white !important;">Page campagne 2026 &#x27A1;</a>
-            <div class="lang-switcher">
-                <button class="lang-switcher-toggle" onclick="document.querySelector('.lang-switcher-menu').classList.toggle('open')">🇫🇷</button>
-                <div class="lang-switcher-menu">
-                    <a href="../fr/elu_2021.html">🇫🇷</a>
-                    <a href="../en/elu_2021.html">🇬🇧</a>
-                    <a href="../de/elu_2021.html">🇩🇪</a>
-                    <a href="../it/elu_2021.html">🇮🇹</a>
+            <div style="display:flex; align-items:center; gap:14px; flex-shrink:0;">
+                <div style="position:relative;">
+                    <button id="hamburgerBtn" style="display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:42px; height:42px; background:rgba(255,255,255,0.1); border:2px solid rgba(255,255,255,0.4); border-radius:8px; cursor:pointer; padding:0;" aria-label="Menu">
+                        <span style="display:block; width:20px; height:2px; background:white; border-radius:1px;"></span>
+                        <span style="display:block; width:20px; height:2px; background:white; border-radius:1px;"></span>
+                        <span style="display:block; width:20px; height:2px; background:white; border-radius:1px;"></span>
+                    </button>
+                    <nav id="navMenu" style="display:none; position:absolute; top:calc(100% + 8px); right:0; background:#1E3554; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.3); z-index:1000; min-width:240px; flex-direction:column;">
+                        <a href="#activite" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Activité</a>
+                        <a href="#cfe" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Conseiller des Français</a>
+                        <a href="#liens" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Liens Utiles</a>
+                        <a href="#quisuisje" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Qui suis-je ?</a>
+                        <a href="consulaire.html" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; display:block;">Page campagne 2026 ➡</a>
+                    </nav>
+                </div>
+                <div style="width:1px; height:28px; background:rgba(255,255,255,0.5);"></div>
+                <div class="lang-switcher">
+                    <button class="lang-switcher-toggle" onclick="document.querySelector('.lang-switcher-menu').classList.toggle('open')">🇫🇷</button>
+                    <div class="lang-switcher-menu">
+                        <a href="../fr/elu_2021.html">🇫🇷</a>
+                        <a href="../en/elu_2021.html">🇬🇧</a>
+                        <a href="../de/elu_2021.html">🇩🇪</a>
+                        <a href="../it/elu_2021.html">🇮🇹</a>
+                    </div>
                 </div>
             </div>
+            <script>
+                document.getElementById('hamburgerBtn').addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var menu = document.getElementById('navMenu');
+                    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+                });
+                document.addEventListener('click', function(e) {
+                    var menu = document.getElementById('navMenu');
+                    if (!e.target.closest('#navMenu') && !e.target.closest('#hamburgerBtn')) {
+                        menu.style.display = 'none';
+                    }
+                });
+                document.querySelectorAll('#navMenu a').forEach(function(a) {
+                    a.addEventListener('click', function() {
+                        document.getElementById('navMenu').style.display = 'none';
+                    });
+                });
+            </script>
         </div>
     </header>
 

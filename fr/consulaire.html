@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Louis Portal - Candidat ASFE Zurich 2026</title>
+    <title>Liste ASFE 2026</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="../auth.js"></script>
 </head>
@@ -12,19 +12,53 @@
     <header class="header">
         <div class="header-content">
             <div class="header-title">
-                <h1>Louis Portal – Tête de liste ASFE</h1>
+                <h1>Page de campagne de l'ASFE</h1>
                 <p>Élection des Conseillers des Français de l'Étranger – 2026</p>
-                <p>🇨🇭 Suisse alémanique · 🇱🇮 Liechtenstein</p>
+                <p>🇨🇭 Suisse alémanique  🇱🇮 Liechtenstein</p>
             </div>
-            <div class="lang-switcher">
-                <button class="lang-switcher-toggle" onclick="document.querySelector('.lang-switcher-menu').classList.toggle('open')">🇫🇷</button>
-                <div class="lang-switcher-menu">
-                    <a href="../fr/consulaire.html">🇫🇷</a>
-                    <a href="../en/consulaire.html">🇬🇧</a>
-                    <a href="../de/consulaire.html">🇩🇪</a>
-                    <a href="../it/consulaire.html">🇮🇹</a>
+            <div style="display:flex; align-items:center; gap:14px; flex-shrink:0;">
+                <div style="position:relative;">
+                    <button id="hamburgerBtn" style="display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:42px; height:42px; background:rgba(255,255,255,0.1); border:2px solid rgba(255,255,255,0.4); border-radius:8px; cursor:pointer; padding:0;" aria-label="Menu">
+                        <span style="display:block; width:20px; height:2px; background:white; border-radius:1px;"></span>
+                        <span style="display:block; width:20px; height:2px; background:white; border-radius:1px;"></span>
+                        <span style="display:block; width:20px; height:2px; background:white; border-radius:1px;"></span>
+                    </button>
+                    <nav id="navMenu" style="display:none; position:absolute; top:calc(100% + 8px); right:0; background:#1E3554; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.3); z-index:1000; min-width:240px; flex-direction:column;">
+                        <a href="#liste" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">La Liste</a>
+                        <a href="#programme" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Le Programme</a>
+                        <a href="#cfe" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Conseiller des Français</a>
+                        <a href="#liens" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; display:block;">Liens Utiles</a>
+                    </nav>
+                </div>
+                <div style="width:1px; height:28px; background:rgba(255,255,255,0.5);"></div>
+                <div class="lang-switcher">
+                    <button class="lang-switcher-toggle" onclick="document.querySelector('.lang-switcher-menu').classList.toggle('open')">🇫🇷</button>
+                    <div class="lang-switcher-menu">
+                        <a href="../fr/consulaire.html">🇫🇷</a>
+                        <a href="../en/consulaire.html">🇬🇧</a>
+                        <a href="../de/consulaire.html">🇩🇪</a>
+                        <a href="../it/consulaire.html">🇮🇹</a>
+                    </div>
                 </div>
             </div>
+            <script>
+                document.getElementById('hamburgerBtn').addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var menu = document.getElementById('navMenu');
+                    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+                });
+                document.addEventListener('click', function(e) {
+                    var menu = document.getElementById('navMenu');
+                    if (!e.target.closest('#navMenu') && !e.target.closest('#hamburgerBtn')) {
+                        menu.style.display = 'none';
+                    }
+                });
+                document.querySelectorAll('#navMenu a').forEach(function(a) {
+                    a.addEventListener('click', function() {
+                        document.getElementById('navMenu').style.display = 'none';
+                    });
+                });
+            </script>
         </div>
     </header>
 
@@ -70,97 +104,93 @@
         <div class="collapsible-section" id="liste">
             <div class="section-header" onclick="toggleSection(this)">
                 <h2>La Liste ASFE</h2>
-                <span class="toggle-icon">▼</span>
+                <span class="toggle-icon open">▼</span>
             </div>
-            <div class="section-content">
-                <p style="margin-bottom: 30px; font-size: 1.1em;">
-                    <a href="elu_2021.html" style="color: #2C4A6E; font-weight: 600;">Élu depuis 2021</a>, je me représente pour l'élection de 2026 avec une liste représentative de notre communauté.
-                </p>
-
+            <div class="section-content open">
                 <div class="logo-grid team-grid">
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="Louis Portal" data-bio="Tête de liste pour l'ASFE, Louis concourt à sa réélection. Élu depuis 2021, il se représente pour l'élection de 2026 avec une liste représentative de notre communauté." data-elu="elu_2021.html" data-linkedin="https://www.linkedin.com/in/louis-portal-7bb22040/" data-photo="../assets/Profils/Profil_Louis_Portal.jpg" style="cursor:pointer;">
                         <div class="logo-image">
                             <img src="../assets/Profils/Profil_Louis_Portal.jpg" alt="Louis Portal" />
                         </div>
                         <span class="logo-label">Louis Portal</span>
                         <span class="team-role">Zurich</span>
                     </div>
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="Marie Galy-Dejean" data-bio="Biographie à venir." data-linkedin="" data-photo="../assets/Profils/Woman.jpg" style="cursor:pointer;">
                         <div class="logo-image">
-                            <img src="../assets/colistier-02.jpg" alt="Prénom Nom" />
+                            <img src="../assets/Profils/Woman.jpg" alt="Marie Galy-Dejean" />
                         </div>
-                        <span class="logo-label">Prénom Nom</span>
-                        <span class="team-role">Ville</span>
+                        <span class="logo-label">Marie Galy-Dejean</span>
+                        <span class="team-role">Zurich</span>
                     </div>
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="Nourane Aleyan" data-bio="Biographie à venir." data-linkedin="" data-photo="../assets/Profils/Man.jpg" style="cursor:pointer;">
                         <div class="logo-image">
-                            <img src="../assets/colistier-03.jpg" alt="Prénom Nom" />
+                            <img src="../assets/Profils/Man.jpg" alt="Nourane Aleyan" />
                         </div>
-                        <span class="logo-label">Prénom Nom</span>
-                        <span class="team-role">Ville</span>
+                        <span class="logo-label">Nourane Aleyan</span>
+                        <span class="team-role">Berne</span>
                     </div>
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="Elisabeth Lefebvre" data-bio="Biographie à venir." data-linkedin="" data-photo="../assets/Profils/Woman.jpg" style="cursor:pointer;">
                         <div class="logo-image">
-                            <img src="../assets/colistier-04.jpg" alt="Prénom Nom" />
+                            <img src="../assets/Profils/Woman.jpg" alt="Elisabeth Lefebvre" />
                         </div>
-                        <span class="logo-label">Prénom Nom</span>
-                        <span class="team-role">Ville</span>
+                        <span class="logo-label">Elisabeth Lefebvre</span>
+                        <span class="team-role">Zurich</span>
                     </div>
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="Benjamin Delahaye" data-bio="Biographie à venir." data-linkedin="" data-photo="../assets/Profils/Man.jpg" style="cursor:pointer;">
                         <div class="logo-image">
-                            <img src="../assets/colistier-05.jpg" alt="Prénom Nom" />
+                            <img src="../assets/Profils/Man.jpg" alt="Benjamin Delahaye" />
                         </div>
-                        <span class="logo-label">Prénom Nom</span>
-                        <span class="team-role">Ville</span>
+                        <span class="logo-label">Benjamin Delahaye</span>
+                        <span class="team-role">Zurich</span>
                     </div>
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="Déborah Schiestel" data-bio="Biographie à venir." data-linkedin="" data-photo="../assets/Profils/Woman.jpg" style="cursor:pointer;">
                         <div class="logo-image">
-                            <img src="../assets/colistier-06.jpg" alt="Prénom Nom" />
+                            <img src="../assets/Profils/Woman.jpg" alt="Déborah Schiestel" />
                         </div>
-                        <span class="logo-label">Prénom Nom</span>
-                        <span class="team-role">Ville</span>
+                        <span class="logo-label">Déborah Schiestel</span>
+                        <span class="team-role">Bâle</span>
                     </div>
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="Thierry Cerclé" data-bio="Biographie à venir." data-linkedin="" data-photo="../assets/Profils/Man.jpg" style="cursor:pointer;">
                         <div class="logo-image">
-                            <img src="../assets/colistier-07.jpg" alt="Prénom Nom" />
+                            <img src="../assets/Profils/Man.jpg" alt="Thierry Cerclé" />
                         </div>
-                        <span class="logo-label">Prénom Nom</span>
-                        <span class="team-role">Ville</span>
+                        <span class="logo-label">Thierry Cerclé</span>
+                        <span class="team-role">Lugano</span>
                     </div>
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="Fabiola Jaymond" data-bio="Biographie à venir." data-linkedin="" data-photo="../assets/Profils/Woman.jpg" style="cursor:pointer;">
                         <div class="logo-image">
-                            <img src="../assets/colistier-08.jpg" alt="Prénom Nom" />
+                            <img src="../assets/Profils/Woman.jpg" alt="Fabiola Jaymond" />
                         </div>
-                        <span class="logo-label">Prénom Nom</span>
-                        <span class="team-role">Ville</span>
+                        <span class="logo-label">Fabiola Jaymond</span>
+                        <span class="team-role">Zurich</span>
                     </div>
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="Jean-Marc Lherminé" data-bio="Biographie à venir." data-linkedin="" data-photo="../assets/Profils/Man.jpg" style="cursor:pointer;">
                         <div class="logo-image">
-                            <img src="../assets/colistier-09.jpg" alt="Prénom Nom" />
+                            <img src="../assets/Profils/Man.jpg" alt="Jean-Marc Lherminé" />
                         </div>
-                        <span class="logo-label">Prénom Nom</span>
-                        <span class="team-role">Ville</span>
+                        <span class="logo-label">Jean-Marc Lherminé</span>
+                        <span class="team-role">Berne</span>
                     </div>
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="XXX YYY" data-bio="Biographie à venir." data-linkedin="" data-photo="../assets/Profils/Woman.jpg" style="cursor:pointer;">
                         <div class="logo-image">
-                            <img src="../assets/colistier-10.jpg" alt="Prénom Nom" />
+                            <img src="../assets/Profils/Woman.jpg" alt="XXX YYY" />
                         </div>
-                        <span class="logo-label">Prénom Nom</span>
-                        <span class="team-role">Ville</span>
+                        <span class="logo-label">XXX YYY</span>
+                        <span class="team-role">Vaduz</span>
                     </div>
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="XXX YYY" data-bio="Biographie à venir." data-linkedin="" data-photo="../assets/Profils/Man.jpg" style="cursor:pointer;">
                         <div class="logo-image">
-                            <img src="../assets/colistier-11.jpg" alt="Prénom Nom" />
+                            <img src="../assets/Profils/Man.jpg" alt="XXX YYY" />
                         </div>
-                        <span class="logo-label">Prénom Nom</span>
-                        <span class="team-role">Ville</span>
+                        <span class="logo-label">XXX YYY</span>
+                        <span class="team-role">Coire</span>
                     </div>
-                    <div class="logo-block">
+                    <div class="logo-block team-member" data-name="XXX YYY" data-bio="Biographie à venir." data-linkedin="" data-photo="../assets/Profils/Woman.jpg" style="cursor:pointer;">
                         <div class="logo-image">
-                            <img src="../assets/colistier-12.jpg" alt="Prénom Nom" />
+                            <img src="../assets/Profils/Woman.jpg" alt="XXX YYY" />
                         </div>
-                        <span class="logo-label">Prénom Nom</span>
-                        <span class="team-role">Ville</span>
+                        <span class="logo-label">XXX YYY</span>
+                        <span class="team-role">Zurich</span>
                     </div>
                 </div>
             </div>
@@ -170,10 +200,14 @@
         <div class="collapsible-section" id="programme">
             <div class="section-header" onclick="toggleSection(this)">
                 <h2>Notre Programme</h2>
-                <span class="toggle-icon">▼</span>
+                <span class="toggle-icon open">▼</span>
             </div>
-            <div class="section-content">
+            <div class="section-content open">
                 <div class="info-grid">
+                    <div class="priority-card" style="background:#2D6A4F; color:white;">
+                        <h3 style="color:white; margin-bottom:15px; font-size:1.2em;">L'ASFE</h3>
+                        <p>Défendre, Soutenir et Accompagner les Français de l'Étranger - L'ASFE est le seul parti dont l'unique objectif est de protéger les intérêts des Français établis hors de France.</p>
+                    </div>
                     <div class="priority-card">
                         <h3>ℹ️ Informer & Défendre</h3>
                         <p>Défendre les droits et intérêts de la communauté via l'action de l'ASFE et la diffusion d'une information fiable et de qualité sur les sujets concernant les Français de l'étranger, notamment dans notre circonscription.</p>
@@ -190,7 +224,7 @@
                         <h3>🎭 Culture Francophone</h3>
                         <p>Valoriser la langue française et soutenir le tissu associatif et culturel francophone.</p>
                     </div>
-                    <div class="priority-card large">
+                    <div class="priority-card">
                         <h3>💼 Développement Économique</h3>
                         <p>Développer le potentiel économique en facilitant les échanges et les mises en relation entre entrepreneurs, talents, investisseurs, chambres de commerce et acteurs économiques.</p>
                     </div>
@@ -202,9 +236,9 @@
         <div class="collapsible-section" id="cfe">
             <div class="section-header" onclick="toggleSection(this)">
                 <h2>Conseiller des Français de l'Étranger – C'est quoi ?</h2>
-                <span class="toggle-icon">▼</span>
+                <span class="toggle-icon open">▼</span>
             </div>
-            <div class="section-content" data-include="cfe-description.html">
+            <div class="section-content open" data-include="cfe-description.html">
             </div>
         </div>
 
@@ -212,9 +246,9 @@
         <div class="collapsible-section" id="liens">
             <div class="section-header" onclick="toggleSection(this)">
                 <h2>Liens Utiles</h2>
-                <span class="toggle-icon">▼</span>
+                <span class="toggle-icon open">▼</span>
             </div>
-            <div class="section-content" data-include="liens-utiles.html">
+            <div class="section-content open" data-include="liens-utiles.html">
             </div>
         </div>
 
@@ -236,6 +270,44 @@
             <a href="https://alliancesolidaire.org" target="_blank">Alliance Solidaire</a>
         </p>
     </footer>
+
+    <!-- Bio Popup -->
+    <div id="bioPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9998; justify-content:center; align-items:center;" onclick="if(event.target===this)this.style.display='none';">
+        <div style="background:white; border-radius:12px; padding:30px; max-width:400px; width:90%; box-shadow:0 10px 40px rgba(0,0,0,0.3); text-align:center; position:relative;">
+            <button onclick="document.getElementById('bioPopup').style.display='none';" style="position:absolute; top:10px; right:15px; background:none; border:none; font-size:1.5em; cursor:pointer; color:#999;">&times;</button>
+            <img id="bioPhoto" src="" style="width:120px; height:120px; border-radius:50%; object-fit:cover; border:3px solid #2D6A4F; margin-bottom:15px;" />
+            <h3 id="bioName" style="color:#2C4A6E; margin-bottom:10px;"></h3>
+            <p id="bioBio" style="color:#555; line-height:1.6; margin-bottom:15px;"></p>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                <a id="bioElu" href="" style="display:none; background:#2D6A4F; color:white; text-decoration:none; padding:10px 20px; border-radius:5px; font-weight:600; font-size:0.9em;">Élu depuis 2021</a>
+                <a id="bioLinkedin" href="" target="_blank" style="display:none; background:#0077B5; color:white; text-decoration:none; padding:10px 20px; border-radius:5px; font-weight:600; font-size:0.9em;">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none';">
+        <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:8px; box-shadow:0 0 30px rgba(0,0,0,0.5);" />
+    </div>
+
+    <script>
+        document.addEventListener('click', function(e) {
+            var member = e.target.closest('.team-member');
+            if (!member) return;
+            document.getElementById('bioPhoto').src = member.getAttribute('data-photo');
+            document.getElementById('bioName').textContent = member.getAttribute('data-name');
+            document.getElementById('bioBio').textContent = member.getAttribute('data-bio');
+            var linkedin = member.getAttribute('data-linkedin');
+            var btnLi = document.getElementById('bioLinkedin');
+            btnLi.style.display = linkedin ? 'inline-block' : 'none';
+            if (linkedin) btnLi.href = linkedin;
+            var elu = member.getAttribute('data-elu');
+            var btnElu = document.getElementById('bioElu');
+            btnElu.style.display = elu ? 'inline-block' : 'none';
+            if (elu) btnElu.href = elu;
+            document.getElementById('bioPopup').style.display = 'flex';
+        });
+    </script>
 
     <script src="../script.js"></script>
 </body>

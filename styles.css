@@ -24,7 +24,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    position: relative;
 }
 
 .header-title h1 {
@@ -37,8 +37,92 @@ body {
     opacity: 0.9;
 }
 
-.header-content {
+/* Header Right: hamburger | separator | flags */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.header-separator {
+    width: 1px;
+    height: 28px;
+    background: rgba(255,255,255,0.5);
+}
+
+/* Hamburger Button */
+.hamburger-wrapper {
     position: relative;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.hamburger:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.8);
+}
+
+.hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: white;
+    border-radius: 1px;
+}
+
+/* Nav Dropdown Menu */
+.nav-menu {
+    display: none !important;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #1E3554;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    z-index: 1000;
+    min-width: 240px;
+    flex-direction: column;
+}
+
+.nav-menu.open {
+    display: flex !important;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    font-size: 0.95em;
+    transition: background 0.2s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-menu a:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.nav-menu a:last-child {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.nav-menu a:hover {
+    background: rgba(255,255,255,0.15);
 }
 
 /* Campaign link */
@@ -125,7 +209,7 @@ body {
 /* Grid Layouts */
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 30px;
 }
@@ -222,6 +306,10 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .priority-card:hover {
@@ -806,7 +894,7 @@ footer a:hover {
     }
 
     .info-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .stats {
