@@ -9,9 +9,8 @@ function toggleSection(header) {
 
 // Toggle year sub-sections in timeline
 function toggleYear(header) {
-    const content = header.nextElementSibling;
-    const icon = header.querySelector('.year-toggle');
-
+    var content = header.nextElementSibling;
+    var icon = header.querySelector('.year-toggle');
     content.classList.toggle('open');
     icon.classList.toggle('open');
 }
@@ -51,37 +50,6 @@ document.addEventListener('click', function(e) {
         menu.classList.remove('open');
     }
 });
-
-// Candidate carousel
-function initCarousel() {
-    var track = document.querySelector('.carousel-track');
-    if (!track) return;
-    var slides = track.querySelectorAll('.carousel-slide');
-    var dots = document.querySelectorAll('.carousel-dot');
-    var currentIndex = 0;
-
-    function goToSlide(index) {
-        if (index < 0) index = slides.length - 1;
-        if (index >= slides.length) index = 0;
-        currentIndex = index;
-        track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
-        dots.forEach(function(dot, i) {
-            dot.classList.toggle('active', i === currentIndex);
-        });
-    }
-
-    document.querySelector('.carousel-btn-prev').addEventListener('click', function() {
-        goToSlide(currentIndex - 1);
-    });
-    document.querySelector('.carousel-btn-next').addEventListener('click', function() {
-        goToSlide(currentIndex + 1);
-    });
-    dots.forEach(function(dot, i) {
-        dot.addEventListener('click', function() { goToSlide(i); });
-    });
-}
-
-document.addEventListener('DOMContentLoaded', initCarousel);
 
 // Add animation on scroll
 const observerOptions = {

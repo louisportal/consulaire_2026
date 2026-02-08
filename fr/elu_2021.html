@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Louis Portal - Cdfe</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles.css?v=2">
     <script src="../auth.js"></script>
 </head>
 <body>
@@ -14,7 +14,7 @@
             <div class="header-title">
                 <h1>Louis Portal</h1>
                 <p>Conseiller des Français de l'Étranger – 2021/2026</p>
-                <p>🇨🇭 Suisse alémanique · 🇱🇮 Liechtenstein</p>
+                <p>🇨🇭 Suisse alémanique  🇱🇮 Liechtenstein</p>
             </div>
             <div style="display:flex; align-items:center; gap:14px; flex-shrink:0;">
                 <div style="position:relative;">
@@ -24,11 +24,10 @@
                         <span style="display:block; width:20px; height:2px; background:white; border-radius:1px;"></span>
                     </button>
                     <nav id="navMenu" style="display:none; position:absolute; top:calc(100% + 8px); right:0; background:#1E3554; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.3); z-index:1000; min-width:240px; flex-direction:column;">
-                        <a href="#activite" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Activité</a>
-                        <a href="#cfe" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Conseiller des Français</a>
-                        <a href="#liens" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Liens Utiles</a>
                         <a href="#quisuisje" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Qui suis-je ?</a>
-                        <a href="consulaire.html" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; display:block;">Page campagne 2026 ➡</a>
+                        <a href="#activite" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Activité</a>
+                        <a href="#liens" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; border-bottom:1px solid rgba(255,255,255,0.1); display:block;">Liens Utiles</a>
+                        <a href="#cfe" style="color:white; text-decoration:none; padding:14px 20px; font-size:0.95em; display:block;">Conseiller des Français</a>
                     </nav>
                 </div>
                 <div style="width:1px; height:28px; background:rgba(255,255,255,0.5);"></div>
@@ -65,13 +64,41 @@
 
     <div class="container">
 
-        <!-- SECTION 1: Activité (Timeline) -->
+        <!-- Lien vers la page de campagne 2026 -->
+        <a href="consulaire.html" class="collapsible-section" style="display:flex; align-items:center; justify-content:space-between; border-color:#2D6A4F; text-decoration:none; cursor:pointer; margin-bottom:30px;">
+            <div class="section-header" style="background:white; width:100%; display:flex; align-items:center; justify-content:space-between; border-radius:6px;">
+                <h2 style="color:#2D6A4F; margin:0; font-size:1.8em;">Élections Consulaires 2026</h2>
+                <span style="font-size:2em; color:#2D6A4F; font-weight:bold;">➜</span>
+            </div>
+        </a>
+
+        <!-- SECTION 1: Qui suis-je ? -->
+        <div class="collapsible-section" id="quisuisje">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>Qui suis-je ?</h2>
+                <span class="toggle-icon open">▼</span>
+            </div>
+            <div class="section-content open">
+                <div class="about-grid">
+                    <div>
+                        <img src="../assets/Profils/Louis_Portal_Picture.jpg" alt="Portrait de Louis Portal" class="profile-photo" />
+                    </div>
+                    <div class="about-content">
+                        <p>Originaire de Bordeaux, j'ai vécu à Paris, New York puis Zurich, où je me suis installé en 2014 pour finir mes études. Basé depuis douze ans en Suisse alémanique, j'y ai fondé une startup dans le digital et évolué pendant dix ans dans l'écosystème tech/capital-risque, avec lequel je collabore encore, représentant d'un club d'investisseur international pour la Suisse.</p>
+                        <p>Aujourd'hui dans le secteur aérien, je voyage régulièrement pour le travail, autant d'occasions d'échanger avec les élus consulaires de monde entier et de rester au contact des réalités des Français de l'Étranger.</p>
+                        <p>Engagé au sein de l'ASFE lors des dernières élections consulaires, et au contact de nombreuses associations françaises et francophones, j'ai été élu avec la conviction qu'à l'étranger, l'engagement doit dépasser les clivages partisans et rassembler tous les Français. Il est essentiel de rappeler que l'indépendance de l'ASFE est un atout majeur. Faire de la politique française est important, mais nous devons avant tout nous concentrer sur les réalités locales de notre pays d'accueil. Cela nous permet de répondre efficacement à vos besoins.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: Activité (Timeline) -->
         <div class="collapsible-section" id="activite">
             <div class="section-header" onclick="toggleSection(this)">
                 <h2>Activité</h2>
-                <span class="toggle-icon">▼</span>
+                <span class="toggle-icon open">▼</span>
             </div>
-            <div class="section-content">
+            <div class="section-content open">
                 <p style="margin-bottom: 30px; font-size: 1.1em;">
                     Retrouvez ci-dessous les principales actions et événements de mon mandat depuis 2021.
                 </p>
@@ -174,9 +201,9 @@
                                     <div class="timeline-dot"></div>
                                     <div class="timeline-content">
                                         <span class="timeline-date">Août 2025</span>
-                                        <h3>Départ de Sibyle</h3>
-                                        <p>Départ de Sibyle.</p>
-                                        <img src="../assets/Activité/2508_depart_Sbile.jpeg" alt="Départ de Sibyle" class="timeline-photo" />
+                                        <h3>Pot de départ de Monsieur Sbile</h3>
+                                        <p>Pot de départ de Monsieur Sbile.</p>
+                                        <img src="../assets/Activité/2508_depart_Thierry_Sbile.jpeg" alt="Pot de départ de Monsieur Sbile" class="timeline-photo" />
                                     </div>
                                 </div>
                                 <div class="timeline-item">
@@ -309,9 +336,9 @@
                                     <div class="timeline-dot"></div>
                                     <div class="timeline-content">
                                         <span class="timeline-date">Mars 2025</span>
-                                        <h3>AFE – Rencontre avec le Ministre délégué à Saint-Martin</h3>
-                                        <p>Assemblée des Français de l'Étranger (AFE) – Rencontre avec le Ministre délégué à Saint-Martin.</p>
-                                        <img src="../assets/Activité/2503_AFE_Ministre_Saint_Martin.JPG" alt="AFE – Ministre délégué à Saint-Martin" class="timeline-photo" />
+                                        <h3>AFE – Rencontre avec Laurent Saint-Martin</h3>
+                                        <p>Assemblée des Français de l'Étranger (AFE) – Rencontre avec Laurent Saint-Martin, Ministre délégué chargé du Commerce extérieur et des Français de l'étranger.</p>
+                                        <img src="../assets/Activité/2503_AFE_Ministre_Laurent_Saint_Martin.JPG" alt="AFE – Laurent Saint-Martin" class="timeline-photo" />
                                     </div>
                                 </div>
                                 <div class="timeline-item">
@@ -393,9 +420,9 @@
                                     <div class="timeline-dot"></div>
                                     <div class="timeline-content">
                                         <span class="timeline-date">Octobre 2024</span>
-                                        <h3>Rencontre avec le Ministre des Français de l'Étranger</h3>
-                                        <p>Rencontre avec le Ministre chargé des Français de l'Étranger.</p>
-                                        <img src="../assets/Activité/2410_Ministre_Francais_Etrangers.jpeg" alt="Ministre des Français de l'Étranger" class="timeline-photo" />
+                                        <h3>Rencontre avec Sophie Primas</h3>
+                                        <p>Rencontre avec Sophie Primas, Ministre déléguée chargée du Commerce extérieur et des Français de l'étranger.</p>
+                                        <img src="../assets/Activité/2410_Ministre_Francais_Etrangers_Sophie_Primas.jpeg" alt="Sophie Primas – Ministre déléguée" class="timeline-photo" />
                                     </div>
                                 </div>
                                 <div class="timeline-item">
@@ -467,7 +494,7 @@
                                         <span class="timeline-date">Juillet 2024</span>
                                         <h3>Élections législatives – Vote au LFiZ</h3>
                                         <p>Journée de vote au Lycée Français de Zürich pour les élections européenes.</p>
-                                        <img src="../assets/Activité/2407_VOTE.jpg" alt="Vote au Consulat" class="timeline-photo" />
+                                        <img src="../assets/Activité/2407_VOTE_Legislatives.jpg" alt="Vote au Consulat" class="timeline-photo" />
                                     </div>
                                 </div>
                                 <div class="timeline-item">
@@ -555,6 +582,30 @@
                         </div>
                     </div>
 
+                    <!-- === 2023 === -->
+                    <div class="year-section">
+                        <div class="year-header" onclick="toggleYear(this)">
+                            <span class="year-label">2023</span>
+                            <span class="year-toggle">▼</span>
+                        </div>
+                        <div class="year-content">
+                            <div class="timeline">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- === 2022 === -->
+                    <div class="year-section">
+                        <div class="year-header" onclick="toggleYear(this)">
+                            <span class="year-label">2022</span>
+                            <span class="year-toggle">▼</span>
+                        </div>
+                        <div class="year-content">
+                            <div class="timeline">
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- === 2021 === -->
                     <div class="year-section">
                         <div class="year-header" onclick="toggleYear(this)">
@@ -579,43 +630,23 @@
             </div>
         </div>
 
-        <!-- SECTION 2: CFE -->
-        <div class="collapsible-section" id="cfe">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h2>Conseiller des Français de l'Étranger – C'est quoi ?</h2>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="section-content" data-include="cfe-description.html">
-            </div>
-        </div>
-
         <!-- SECTION 3: Liens Utiles -->
         <div class="collapsible-section" id="liens">
             <div class="section-header" onclick="toggleSection(this)">
                 <h2>Liens Utiles</h2>
-                <span class="toggle-icon">▼</span>
+                <span class="toggle-icon open">▼</span>
             </div>
-            <div class="section-content" data-include="liens-utiles.html">
+            <div class="section-content open" data-include="liens-utiles.html">
             </div>
         </div>
 
-        <!-- SECTION 4: Qui suis-je ? -->
-        <div class="collapsible-section" id="quisuisje">
+        <!-- SECTION 4: CFE -->
+        <div class="collapsible-section" id="cfe">
             <div class="section-header" onclick="toggleSection(this)">
-                <h2>Qui suis-je ?</h2>
-                <span class="toggle-icon">▼</span>
+                <h2>Conseiller des Français de l'Étranger – C'est quoi ?</h2>
+                <span class="toggle-icon open">▼</span>
             </div>
-            <div class="section-content">
-                <div class="about-grid">
-                    <div>
-                        <img src="../assets/Profils/Profil_Louis_Portal.jpg" alt="Portrait de Louis Portal" class="profile-photo" />
-                    </div>
-                    <div class="about-content">
-                        <p>Originaire de Bordeaux, j'ai vécu à Paris, New York puis Zurich, où je me suis installé en 2014 pour finir mes études. Basé depuis douze ans en Suisse alémanique, j'y ai fondé une startup dans le digital et évolué pendant dix ans dans l'écosystème tech/capital-risque, avec lequel je collabore encore, représentant d'un club d'investisseur international pour la Suisse.</p>
-                        <p>Aujourd'hui dans le secteur aérien, je voyage régulièrement pour le travail, autant d'occasions d'échanger avec les élus consulaires de monde entier et de rester au contact des réalités des Français de l'Étranger.</p>
-                        <p>Engagé au sein de l'ASFE lors des dernières élections consulaires, et au contact de nombreuses associations françaises et francophones, j'ai été élu avec la conviction qu'à l'étranger, l'engagement doit dépasser les clivages partisans et rassembler tous les Français. Il est essentiel de rappeler que l'indépendance de l'ASFE est un atout majeur. Faire de la politique française est important, mais nous devons avant tout nous concentrer sur les réalités locales de notre pays d'accueil. Cela nous permet de répondre efficacement à vos besoins.</p>
-                    </div>
-                </div>
+            <div class="section-content open" data-include="cfe-description.html">
             </div>
         </div>
 
@@ -631,7 +662,7 @@
         <p>© 2026 – Louis Portal. Conseiller des Français de l'Étranger.</p>
         <p>Suisse alémanique & Liechtenstein</p>
         <p style="margin-top: 15px; font-size: 0.9em;">
-            <a href="consulaire.html">← Retour au site de campagne 2026</a>
+            N'oubliez pas de vous inscrire sur la liste électorale consulaire
         </p>
     </footer>
 
