@@ -761,6 +761,12 @@ footer a:hover {
         left: -36px;
     }
 
+    .timeline-photo {
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+    }
+
     .logo-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
